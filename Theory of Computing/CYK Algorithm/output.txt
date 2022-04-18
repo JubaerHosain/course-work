@@ -1,0 +1,2 @@
+Enter starting symbol: Enter number of productin rule: Enter 4 production rule: 
+Enter input string: 
