@@ -5,6 +5,8 @@ typedef long long int ll;
 typedef pair<int, int> pii;
 typedef vector<vector<int>> vii;
 
+// Only applicable for CNF(Chomsky Normal Form)
+
 /*****user defined function*****/
 const int N = 100;
 string table[N][N];
