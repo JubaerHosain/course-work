@@ -1,0 +1,5 @@
+commom parent/interface raka. jno subclass gulu panrent class er instance hoye onno kono function er parameter
+hote pare(different subclass same function e jete parbe)
+
+Parent obj1 = new Child1();
+Parent obj2 = new Child2();

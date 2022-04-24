@@ -1,0 +1,6 @@
+1. Life cycle of thread.
+2. Constructor from thread class
+3. Synchronization of thread
+4. Join method in thread
+5. Interrupt in thread
+6. Java thread methods

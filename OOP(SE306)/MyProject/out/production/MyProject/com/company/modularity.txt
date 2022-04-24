@@ -1,0 +1,11 @@
+The modularity means that the logical components of a large program can each be implemented separately.
+Different people can work on different classes. Each implementation task is isolated from the others.
+
+
+Modularity is the process of decomposing a problem (program) into a set of modules so as to
+reduce the overall complexity of the problem. Booch has defined modularity as −
+
+“Modularity is the property of a system that has been decomposed into
+a set of cohesive and loosely coupled modules.”
+
+implementation is through packages in java.

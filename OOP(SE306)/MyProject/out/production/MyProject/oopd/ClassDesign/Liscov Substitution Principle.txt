@@ -1,0 +1,4 @@
+super class e emon kono method jodi thake jeta subclass e used hobe na, but jur kore implement korte hobe
+that is the violation of liskov substitution principle.
+
+super class e emon kono method takte parbena jeta subclass use korena

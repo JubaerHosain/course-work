@@ -1,0 +1,4 @@
+" Coupling " describes the relationships between modules/class,
+and " cohesion " describes the relationships within them/class.
+
+Low coupling and tight/high cohesion is good object-oriented design (OOD).

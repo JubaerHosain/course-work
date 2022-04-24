@@ -1,0 +1,11 @@
+Cohesion defines how narrowly defined an object is. Functional cohesion refers measures how strongly
+objects are related.
+
+intra module(ekoi module er modde relation/dependency)
+
+Cohesion is a measure of how logically related the parts of an individual components are to each other,
+and to the overall components. The more logically related the parts of components are to each other higher
+(better) the cohesion of that component.
+
+Low coupling and tight cohesion is good object-oriented design (OOD).
+

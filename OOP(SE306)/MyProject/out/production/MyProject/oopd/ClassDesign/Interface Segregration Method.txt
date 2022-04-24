@@ -1,0 +1,4 @@
+Client should not force to depend on methods that they do not use.
+
+The ISP says that once an interface has become too 'fat‘ it needs to be split into smaller and more specific
+interfaces so that any clients of the interface will only know about the methods that pertain to them
