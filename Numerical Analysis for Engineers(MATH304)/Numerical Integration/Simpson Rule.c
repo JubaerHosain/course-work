@@ -7,6 +7,7 @@ double f(double x) {
 }
 
 int main() {
+    // n must be even in simpson rule
     int n = 200;
 
     double a = 0, b = 1;
