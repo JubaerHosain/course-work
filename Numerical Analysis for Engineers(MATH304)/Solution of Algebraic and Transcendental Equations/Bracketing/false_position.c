@@ -22,11 +22,12 @@ void solve_problem() {
     else if(fabs(func(a)*func(b)) <= eps) {
         if(fabs(func(a)) <= eps) {
             printf("x: %lf\n", a); 
+            return;
         }
         else if(fabs(func(b)) <= eps) {
             printf("x: %lf\n", b);
+            return;
         }
-        return;
     }
 
     double c;

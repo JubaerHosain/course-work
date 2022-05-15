@@ -6,13 +6,14 @@ using namespace std;
 
 
 double f(double x) {
+    // note: why |f(x)| ?
     return abs(2 * sin(x));
 }
 
 int main() {
     int n = 200;
 
-    double a = 0, b = 3.1416;
+    double a = 0, b = 2 * 3.1416;
     double h = (b-a) / n;
 
     double area = f(a) + f(b);
@@ -23,6 +24,7 @@ int main() {
             odd += f(x);
         else
             even += f(x);
+        printf("%0.5lf\n", f(x));
     }
 
     area = (area + 4 * odd + 2 * even) * (h/3);
