@@ -139,7 +139,7 @@ void encryption_mix_columns(vector<uchar> &message) {
 }
 
 /* Each round operates on 128 bits at a time The number of rounds is defined in aes_ncrypt()*/
-vector<uchar> encryption_round(vector<uchar> &curr_message, vector<uchar> &curr_key) {
+void encryption_round(vector<uchar> &curr_message, vector<uchar> &curr_key) {
 	encryption_sub_bytes(curr_message);
 	encryption_shift_rows(curr_message);
 	encryption_mix_columns(curr_message);
@@ -147,7 +147,7 @@ vector<uchar> encryption_round(vector<uchar> &curr_message, vector<uchar> &curr_
 }
 
  // Same as round() except it doesn't mix columns
-vector<uchar> final_round(vector<uchar> &curr_message, vector<uchar> &curr_key) {
+void final_round(vector<uchar> &curr_message, vector<uchar> &curr_key) {
 	encryption_sub_bytes(curr_message);
 	encryption_shift_rows(curr_message);
 	add_round_key(curr_message, curr_key);
