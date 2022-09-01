@@ -109,3 +109,20 @@ insert into loan (loan_number, branch_name, amount) values ('L-17', 'Downtown', 
 insert into loan (loan_number, branch_name, amount) values ('L-23', 'Redwood', 2000);
 insert into loan (loan_number, branch_name, amount) values ('L-93', 'Mianus', 500);
 
+-- data insert into borrower table
+insert into borrower (customer_name, loan_number) values ('Adams', 'L-16');
+insert into borrower (customer_name, loan_number) values ('Curry', 'L-93');
+insert into borrower (customer_name, loan_number) values ('Hayes', 'L-15');
+insert into borrower (customer_name, loan_number) values ('Jones', 'L-17');
+insert into borrower (customer_name, loan_number) values ('Smith', 'L-11');
+insert into borrower (customer_name, loan_number) values ('Williams', 'L-17');
+
+
+-- data insert into depositor table
+insert into depositor (customer_name, account_number) values('Hayes', 'A-102');
+insert into depositor (customer_name, account_number) values('Johnson', 'A-101');
+insert into depositor (customer_name, account_number) values('Johnson', 'A-201');
+insert into depositor (customer_name, account_number) values('Jones', 'A-217');
+insert into depositor (customer_name, account_number) values('Lindsay', 'A-222');
+insert into depositor (customer_name, account_number) values('Smith', 'A-215');
+insert into depositor (customer_name, account_number) values('Turner', 'A-305');
