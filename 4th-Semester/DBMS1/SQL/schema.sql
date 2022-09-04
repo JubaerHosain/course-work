@@ -1,3 +1,5 @@
+## run createTable.sql First
+
 select * from loan;
 
 -- Find the name, loan number and loan amount of all 
@@ -39,3 +41,17 @@ select count(*) from customer;
 
 -- Find the number of depositors in the bank.
 select count(distinct customer_name) from depositor;
+
+-- Find the names of all customers whose street includes the substring “in”.
+select customer_name from customer where customer_name like '%in%';
+
+-- List in alphabetic order the names of all customers having a loan in Perryridge branch
+select customer_name from borrower, loan where borrower.loan_number = loan.loan_number and branch_name = 'Perryridge';
+
+-- Find the number of depositors for each branch.
+select branch_name, count(distinct customer_name) from depositor, account where account.account_number = depositor.account_number group by branch_name;
+
+-- Find the names of all branches where the average account balance is more than $1,200
+select branch_name, avg(balance) from account group by branch_name having avg(balance) > 120;
+
+
