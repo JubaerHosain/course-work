@@ -11,6 +11,7 @@ int total_allocated(vector<vector<int>> &allocated_res, int res_no) {
     int sum = 0;
     for(int i = 0; i < allocated_res.size(); i++) 
         sum += allocated_res[i][res_no];
+    return num;
 }
 
 bool is_possible(vector<int> &available_need, vector<int> &available_res) {
