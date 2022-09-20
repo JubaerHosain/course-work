@@ -137,7 +137,6 @@ void separator(string getBlock) {
 
 	// Iterate over the range [16, 80]
 	for (int g = 16; g < 80; ++g) {
-
 		// Find the WordA
 		int64 WordA = rotate_right(Message[g - 2], 19)
 					^ rotate_right(Message[g - 2], 61)
@@ -326,7 +325,7 @@ string SHA512(string myString) {
 }
 
 int main() {
-	string input = "GeeksForGeeks";
+	string input = "Hello IIT";
     string hash = SHA512(input);
 
 	cout << "Length: " << hash.size() * 4 << endl;
