@@ -10,8 +10,12 @@ typedef pair<int, int> pii;
 typedef vector<vector<int>> vii;
 
 /*****Properties of B+ Tree*****/
+// 1. All leaves are at the same level.
+// 2. Each node except root can have a maximum of m children and at least m/2 children.
+// 3. Each node can contain a maximum of m - 1 keys and a minimum of ⌈m/2⌉ - 1 keys.
+// 4. Follows Binary Search Tree 
+// 5. All data will be stored in leaf nodes
 
- 
 /*****Helper Functions*****/
 const int M = 3;      // order of B+ Tree
 
