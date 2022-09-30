@@ -106,6 +106,7 @@ void insert_internal_node(node *parent, string word, node *left, node *right) {
         
         parent->size -= ((M-1)/2 + 1);
         new_node->size = (M-1)/2;
+        // not new_leaf->word[0]
         insert_internal_node(parent->parent, parent->word[parent->size], parent, new_node);
     }
 }
@@ -168,40 +169,37 @@ int main() {
     assert(M >= 3);
     root = new node(M);
 
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
 
-    int n; 
-    cin >> n;
-
-    vector<string> s;
-    while(n--) {
-        string a, b;
-        cin >> a >> b;
-        insert(a, b);
-        s.push_back(a);
+    int cnt = 100000;
+    vector<string> words;
+    for(int i = 0; i < cnt; i++) {
+        string word; 
+        cin >> word;
+        words.push_back(word);
+        insert(word, word);
+    }
+    
+    for(string &word: words) {
+       if(word != search(word))
+            cout << word << endl;
     }
 
-    for(string st: s)
-        cout << st << " -> " << search(st) << endl;
-    
+    // Manual Input
 
-    // freopen("input.txt", "r", stdin);
+    // int n; 
+    // cin >> n;
 
-
-    // int cnt = 100000;
-    // vector<string> words;
-    // for(int i = 0; i < cnt; i++) {
-    //     string word; 
-    //     cin >> word;
-    //     words.push_back(word);
-    //     insert(word, word);
+    // vector<string> s;
+    // while(n--) {
+    //     string a, b;
+    //     cin >> a >> b;
+    //     insert(a, b);
+    //     s.push_back(a);
     // }
-    
-    // for(string &word: words) {
-    //    if(word != search(word))
-    //         cout << word << endl;
-    // }
+
+    // for(string st: s)
+    //     cout << st << " -> " << search(st) << endl;
 
     cout << "Execution Finished." << endl;
 
