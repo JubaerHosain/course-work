@@ -2,7 +2,7 @@
 #include <chrono>
 using namespace std;
 using namespace chrono;
-#define endl          '\n'
+#define endl       '\n'
 
 /*****Properties of B+ Tree*****/
 // 1. All leaves are at the same level.
@@ -11,8 +11,8 @@ using namespace chrono;
 // 4. Follows Binary Search Tree 
 // 5. All data will be stored in leaf nodes
 
-/*****Helper Functions*****/
 
+/*****Helper Functions*****/
 // order of B+ Tree
 int M = 3;       
 
@@ -33,9 +33,7 @@ struct node {
         for(int i = 0; i <= M; i++)
             pointer[i] = NULL;
     }
-};
-
-node *root = new node(M);
+} *root;
 
 // insert key and internal node to parent
 void insert_to_parent(node *parent, string word, node *right) {
@@ -200,10 +198,10 @@ int main() {
     // freopen("output.txt", "w", stdout);
 
     while(cin >> word) {
-        auto start = high_resolution_clock::now();
+        start = high_resolution_clock::now();
         meaning = search(word);
-        auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(stop - start);
+        stop = high_resolution_clock::now();
+        duration = duration_cast<microseconds>(stop - start);
 
         cout << word << " -> " << meaning << endl;
         cout << "Search Time: " << duration.count() << " micro sec" << endl;
