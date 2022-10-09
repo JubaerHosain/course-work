@@ -1,13 +1,8 @@
 #include<bits/stdc++.h>
+#include <chrono>
 using namespace std;
+using namespace chrono;
 #define endl          '\n'
-#define all(v)        v.begin(), v.end()
-#define rep(i, s, n)  for(int i = s; i <= n; i++)
-#define rev(i, n, s)  for(int i = n; i >= s; i--)
-typedef long long ll;
-typedef long double ld;
-typedef pair<int, int> pii;
-typedef vector<vector<int>> vii;
 
 /*****Properties of B+ Tree*****/
 // 1. All leaves are at the same level.
@@ -17,7 +12,9 @@ typedef vector<vector<int>> vii;
 // 5. All data will be stored in leaf nodes
 
 /*****Helper Functions*****/
-const int M = 3;      // order of B+ Tree
+
+// order of B+ Tree
+int M = 3;       
 
 struct node {
     int size;
@@ -160,48 +157,57 @@ string search(string word) {
     return "not found!";
 }
 
+void assert0(int &M) {
+    if(M <= 2)
+        M++;
+}
+
 /*****main Function*****/
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    cout << "Order of B+ Tree: ";
+    cin >> M;
 
+    assert0(M);
     assert(M >= 3);
+
+    // create root of b+ tree
     root = new node(M);
 
-    freopen("input.txt", "r", stdin);
+    // open input file
+    ifstream input_file;
+    input_file.open("dictionary.txt");
 
-    int cnt = 100000;
-    vector<string> words;
-    for(int i = 0; i < cnt; i++) {
-        string word; 
-        cin >> word;
-        words.push_back(word);
-        insert(word, word);
+    if(!input_file) {
+        cout << "File Not Found!" << endl;
+        exit(1);
     }
     
-    for(string &word: words) {
-       if(word != search(word))
-            cout << word << endl;
+    // build b+ tree
+    string word, meaning;
+    auto start = high_resolution_clock::now();
+    while(input_file >> word) {
+        getline(input_file, meaning);
+        insert(word, meaning);
     }
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout << "Build successful in: " << duration.count() << " micro sec" << endl;
 
-    // Manual Input
+    // close input file
+    input_file.close();
 
-    // int n; 
-    // cin >> n;
+    cout << "Enter words: " << endl;
+    // freopen("output.txt", "w", stdout);
 
-    // vector<string> s;
-    // while(n--) {
-    //     string a, b;
-    //     cin >> a >> b;
-    //     insert(a, b);
-    //     s.push_back(a);
-    // }
+    while(cin >> word) {
+        auto start = high_resolution_clock::now();
+        meaning = search(word);
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
 
-    // for(string st: s)
-    //     cout << st << " -> " << search(st) << endl;
-
-    cout << "Execution Finished." << endl;
+        cout << word << " -> " << meaning << endl;
+        cout << "Search Time: " << duration.count() << " micro sec" << endl;
+    }
 
     return 0;
 } 
