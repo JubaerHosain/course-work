@@ -1,3 +1,4 @@
 1. Case
 2. Pivot
 3. join, left join, right join, inner join, full join
+3. Multiple joins (join more than two table)
