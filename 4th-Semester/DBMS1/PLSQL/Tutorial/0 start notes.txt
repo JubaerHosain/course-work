@@ -1,3 +1,0 @@
-connect hr;   // connect to database
-
-set serveroutput on; // to see the output
