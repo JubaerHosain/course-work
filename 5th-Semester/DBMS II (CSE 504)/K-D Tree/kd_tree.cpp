@@ -12,69 +12,58 @@ struct Node {
     }
 };
 
-// ================= Insert a Point ====================
+// ================= Utilities ====================
+void print(vector<int> &a, string sep = "\n") {
+    int n = a.size();
+    for (int i = 0; i < n; i++) {
+        if(i == 0)
+            cout << "{";
 
-Node* insert(Node *root, vector<int> &point, int k, int cd = 0) {
-    if(root == NULL) {
-        return new Node(k, point);
+        cout << a[i];
+
+        if(i < n-1)
+            cout << ", ";
+        if(i == n-1)
+            cout << "}";
     }
-
-    if(point[cd] < root->point[cd])
-        root->left = insert(root->left, point, k, (cd+1)%k);
-    else 
-        root->right = insert(root->right, point, k, (cd+1)%k);
-
-    return root;
+    cout << sep;
 }
 
-// ================= Search a Point ====================
-
-bool is_equal(vector<int> &point1, vector<int> &point2, int k) {
-    for(int i = 0; i < k; i++) {
+bool is_equal(vector<int> &point1, vector<int> &point2) {
+    for(int i = 0; i < point1.size(); i++) {
         if(point1[i] != point2[i])
             return false;
     }
     return true;
 } 
 
+// ================= Insert a Point ====================
+
+Node* insert_node(Node *root, vector<int> &point, int k, int cd = 0) {
+    if(root == NULL) {
+        return new Node(k, point);
+    }
+
+    if(point[cd] < root->point[cd])
+        root->left = insert_node(root->left, point, k, (cd+1)%k);
+    else 
+        root->right = insert_node(root->right, point, k, (cd+1)%k);
+
+    return root;
+}
+
+// ================= Search a Point ====================
+
 bool search(Node *root, vector<int> &point, int k, int cd) {
     if(root == NULL)
         return false;
-    else if(is_equal(root->point, point, k)) 
+    else if(is_equal(root->point, point)) 
         return true;
 
     if(point[cd] < root->point[cd])
         return search(root->left, point, k, (cd+1)%k);
     else 
         return search(root->right, point, k, (cd+1)%k);
-}
-
-// ============ Find Minimum On Given Dimension ============
-
-vector<int> min(vector<int> a, vector<int> b, int d) {
-    return a[d] < b[d] ? a : b;
-}
-
-vector<int> find_min(Node *root, int k, int d, int cd = 0) {
-    if(root == NULL) {
-        vector<int> temp;
-        for(int i = 0; i < k; i++)
-            temp.push_back(INT_MAX);
-        return temp;
-    }
-
-    if(cd == d) {
-        if(root->left == NULL) 
-            return root->point; 
-        // min of root and left min
-        return min(root->point, find_min(root->left, k, d, (cd+1)%k), d);
-       
-    }
-
-    // min of root, left min, right min
-    vector<int> temp1 = find_min(root->left, k, (cd+1)%k, d);
-    vector<int> temp2 = find_min(root->right, k, (cd+1)%k, d);
-    return min(root->point, min(temp1, temp2, d), d);
 }
 
 // ================ Nearest Neighbour =================
@@ -133,47 +122,88 @@ Node* nearest_neighbour(Node *root, vector<int> target, int k, int cd = 0) {
     return best;
 }
 
-// ================= Delete a Point ====================
-// add function to delete node from k-d tree
+// ============ Find Minimum On Given Dimension ============
 
-void print_point(vector<int> &a, string sep = "\n") {
-    int n = a.size();
-    for (int i = 0; i < n; i++) {
-        if(i == 0)
-            cout << "{";
-
-        cout << a[i];
-
-        if(i < n-1)
-            cout << ", ";
-        if(i == n-1)
-            cout << "}";
-    }
-    cout << sep;
+vector<int> min(vector<int> a, vector<int> b, int d) {
+    return a[d] < b[d] ? a : b;
 }
+
+vector<int> find_min(Node *root, int k, int d, int cd = 0) {
+    if(root == NULL) {
+        vector<int> temp;
+        for(int i = 0; i < k; i++)
+            temp.push_back(INT_MAX);
+        return temp;
+    }
+
+    if(cd == d) {
+        if(root->left == NULL) 
+            return root->point; 
+        // min of root and left min
+        return min(root->point, find_min(root->left, k, d, (cd+1)%k), d);
+       
+    }
+
+    // min of root, left min, right min
+    vector<int> temp1 = find_min(root->left, k, (cd+1)%k, d);
+    vector<int> temp2 = find_min(root->right, k, (cd+1)%k, d);
+    return min(root->point, min(temp1, temp2, d), d);
+}
+
+// ================= Delete a Point ====================
+
+Node *delete_node(Node *root, vector<int> target, int k, int cd = 0) {
+    if(root == NULL)
+        return NULL;
+    else if(is_equal(root->point, target)) {
+        if(root->right != NULL) {
+            // last parameter should 0 or cd ?? [0 in gfg]
+            root->point = find_min(root->right, k, cd, 0);
+            root->right = delete_node(root->right, root->point, k, (cd+1)%k);
+        } else if(root->left != NULL) {
+            root->point = find_min(root->left, k, cd, 0);
+            root->right = delete_node(root->left, target, k, (cd+1)%k);
+        } else {
+            delete root;
+            return NULL;
+        }
+        return root;
+    }
+
+    if(target[cd] < root->point[cd])
+        root->left = delete_node(root->left, target, k, (cd+1)%k);
+    else 
+        root->right = delete_node(root->right, target, k, (cd+1)%k);
+
+    return root;
+}
+
 
 int main(void) {
     int k = 2;
     Node *root = NULL;
 
-    vector<vector<int>> points = {{3, 6}, {17, 15}, {13, 15}, {6, 12},
-                       {9, 1}, {2, 7}, {10, 19}};
+    // vector<vector<int>> points = {{3, 6}, {17, 15}, {13, 15}, {6, 12},
+    //                    {9, 1}, {2, 7}, {10, 19}};
      
-    // vector<vector<int>> points = { { 30, 40 }, { 5, 25 },
-    //    { 70, 70 }, { 10, 12 }, { 50, 30 }, { 35, 45 } };
+    vector<vector<int>> points = { { 30, 40 }, { 5, 25 },
+       { 70, 70 }, { 10, 12 }, { 50, 30 }, { 35, 45 } };
     
    
     for (int i = 0; i < points.size(); i++)
-       root = insert(root, points[i], k);
+       root = insert_node(root, points[i], k);
 
     vector<int> a = find_min(root, k, 0);
-    print_point(a);
+    print(a);
 
     vector<int> b = find_min(root, k, 1);
-    print_point(b);
+    print(b);
 
-    vector<int> c = nearest_neighbour(root, {40, 40}, k)->point;
-    print_point(c);
+    vector<int> c = nearest_neighbour(root, {4, 400}, k)->point;
+    print(c);
+
+    root = delete_node(root, {30, 40}, k);
+    print(root->point);
 
     return 0;
 }
