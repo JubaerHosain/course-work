@@ -30,15 +30,15 @@ for index in range(total_images):
     for x in range(height):
         for y in range(width):
             # why this order ?
-            blue = mask_image[x, y, 0]
+            red = mask_image[x, y, 0]
             green = mask_image[x, y, 1]
-            red = mask_image[x, y, 2]
+            blue = mask_image[x, y, 2]
 
             # means it's NON-SKIN
             if blue > 250 and green > 250 and red > 250:  
-                blue = actual_image[x, y, 0]
+                red = actual_image[x, y, 0]
                 green = actual_image[x, y, 1]
-                red = actual_image[x, y, 2]
+                blue = actual_image[x, y, 2]
                 
                 non_skin_rgb_count[red, green, blue] += 1
                 non_skin_cnt += 1
