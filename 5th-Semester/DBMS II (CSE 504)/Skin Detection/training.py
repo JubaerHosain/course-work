@@ -1,5 +1,7 @@
 import numpy
 import cv2
+import imageio.v2 as imageio
+
 
 # probability of P(C|S)
 skin_color_ratio = numpy.full((256, 256, 256), 0.0, dtype=float)
@@ -22,8 +24,9 @@ total_images = 555
 
 for index in range(total_images):
     filename = "%04d" % index
-    mask_image = cv2.imread("ibtd/mask/" + filename + ".bmp")
-    actual_image = cv2.imread("ibtd/" + filename + ".jpg")
+    # instead of cv2.imread(filename)
+    mask_image = imageio.imread("ibtd/mask/" + filename + ".bmp")
+    actual_image = imageio.imread("ibtd/" + filename + ".jpg")
 
     height, width, channel = mask_image.shape
 

@@ -8,13 +8,15 @@ output_img = "final1.jpg"
 trained_value = np.zeros(shape=(256, 256, 256), dtype=float)
 new_img = imageio.imread(input_img)
 
+print(new_img.shape)
+
 fp = open('output.txt', 'r')
 
 for i in range(256):
     for j in range(256):
         for k in range(256):
             val = fp.readline()
-            trained_value[i][j][k] = float(val)
+            trained_value[i, j, k] = float(val)
 
 fp.close()
 
