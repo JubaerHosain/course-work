@@ -77,7 +77,7 @@ def read_trained_data(test_no):
 
 
 if __name__ == '__main__':
-    total_test = 1
+    total_test = 10
     for i in range(total_test):
         print(f"Test - {i+1} is running")
         test_image_names = read_image_names(i)

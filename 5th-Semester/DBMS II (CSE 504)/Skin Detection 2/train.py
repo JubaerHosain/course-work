@@ -79,7 +79,7 @@ if __name__ == '__main__':
     filenames = ["%04d"%i for i in range(total_image)]
     
     # 90% for training and 10% for testing
-    total_training = 1
+    total_training = 10
     no_of_image_to_train = 500
     
     start = time.time()
