@@ -27,17 +27,20 @@ def apriori(data, min_support):
         if count >= min_support:
             frequent_item_sets.append(item_set)
 
+    print(frequent_item_sets)
+    
     # Continue the process for item sets of length 2 and up
     k = 2
     while len(frequent_item_sets) > 0:
         # Generate a list of all item sets of length k
-        item_sets = []
+        item_sets = set()
         for item_set_1 in frequent_item_sets:
             for item_set_2 in frequent_item_sets:
                 if item_set_1 != item_set_2:
                     item_set = item_set_1.union(item_set_2)
                     if len(item_set) == k:
-                        item_sets.append(item_set)
+                        item_sets.add(item_set)
+        print(item_sets)
 
         # Initialize a dictionary to store the support counts for each item set
         support_counts = {}
@@ -72,6 +75,7 @@ def apriori(data, min_support):
 
 data = [
     ['1', '2', '3'],
+    ['1', '2', '3', '4'],
 ]
 
 print("hello")
