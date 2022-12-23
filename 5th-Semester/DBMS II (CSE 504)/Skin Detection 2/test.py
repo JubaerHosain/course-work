@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # skin = positive
 # non skin = negative
 T = 0.4
-predictions = []
+accuracy = []
 TP, TN, FP, FN = 0, 0, 0, 0
 
 
@@ -17,7 +17,7 @@ def equal(l1, l2):
 
 
 def test(test_image_names, trained_data):
-    global predictions
+    global accuracy
     TP, TN, FP, FN = 0, 0, 0, 0
     for name in test_image_names:
         new_mask = imageio.imread(f"ibtd/{name}.jpg")
@@ -48,7 +48,8 @@ def test(test_image_names, trained_data):
                         FP += 1
                     else:
                         TN += 1
-    predictions.append((TN + TP) / (TN + TP + FP + FN))
+    prob = (TN + TP) / (TN + TP + FP + FN)
+    accuracy.append(prob)
 
     
 
@@ -67,10 +68,8 @@ def read_trained_data(test_no):
         for g in range(256):
             for b in range(256):
                 val = fp.readline()
-                try:
-                    trained_data[r, g, b] = float(val)
-                except:
-                    print(f"error - {val}")
+                trained_data[r, g, b] = float(val)
+                
     fp.close()
     return trained_data
 
@@ -85,5 +84,7 @@ if __name__ == '__main__':
         trained_data = read_trained_data(i)
         test(test_image_names, trained_data)
         print(f"Test - {i+1} is completed!")
-    print(predictions)
+        
+    print(accuracy)
+    print(f"Average accuracy: {numpy.average(accuracy)}")
 
