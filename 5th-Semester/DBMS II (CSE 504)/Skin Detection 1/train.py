@@ -32,7 +32,7 @@ for index in range(total_images):
 
     for x in range(height):
         for y in range(width):
-            # why this order ?
+            # why this order ? [opencv - bgr]
             blue = mask_image[x, y, 0]
             green = mask_image[x, y, 1]
             red = mask_image[x, y, 2]
