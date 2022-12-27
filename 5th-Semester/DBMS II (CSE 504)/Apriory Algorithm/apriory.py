@@ -1,5 +1,3 @@
-from collections import Counter
-
 
 def apriori(data, min_support):
     """
