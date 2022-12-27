@@ -1,0 +1,38 @@
+FizzBuzz
+
+Problem:
+1. Long method
+2. Comments smell
+
+Solutions:
+1. Decompose Conditional
+2. Appropriate naming
+
+**************************
+
+PlaintextToHtmlConverter
+Problem:
+1. unnecessary comment
+2. long method
+3. Comments smell
+
+solutions:
+1.Remove Unnecessary comment
+2. Extract method
+3. 
+
+trivia Game
+
+Problem:
+1. Dead code in line 33, 34
+2. long method
+3. repeating code
+4. inappropriate naming
+5. repeating code in currentCategory method
+
+Solutions
+1. Remove dead code
+2. Method Extraction
+3. remove extra Conditional
+
+
