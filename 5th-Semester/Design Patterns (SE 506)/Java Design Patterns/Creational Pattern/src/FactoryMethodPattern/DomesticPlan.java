@@ -1,11 +1,11 @@
+package FactoryMethodPattern;
 
 public class DomesticPlan extends Plan {
-    public DomesticPlan(double rate) {
+    public DomesticPlan() {
         super();
-        this.rate = rate;
     }
     @Override
     public void getRate() {
-        rate=3.50;
+        this.rate = 3.50;
     }
 }

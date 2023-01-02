@@ -1,10 +1,11 @@
+package FactoryMethodPattern;
+
 class InstitutionalPlan extends Plan {
-    public InstitutionalPlan(double rate) {
+    public InstitutionalPlan() {
         super();
-        this.rate = rate;
     }
     //@override
     public void getRate() {
-        rate = 5.50;
+        this.rate = 5.50;
     }
 }
