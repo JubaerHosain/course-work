@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Behavioral Pattern/Behavioral Pattern.iml" filepath="$PROJECT_DIR$/Behavioral Pattern/Behavioral Pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/Creational Pattern/Creational Pattern.iml" filepath="$PROJECT_DIR$/Creational Pattern/Creational Pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java Design Patterns.iml" filepath="$PROJECT_DIR$/Java Design Patterns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Structural Pattern/Structural Pattern.iml" filepath="$PROJECT_DIR$/Structural Pattern/Structural Pattern.iml" />
     </modules>
   </component>
 </project>
