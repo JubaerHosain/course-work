@@ -87,7 +87,15 @@ class FileChangeLogger implements FileObserver {
 
 public class FileMonitoringSystem {
     public static void main(String[] args) {
-        FileSubject fileSubject = new FileMonitor("file.txt", "path/to/file.txt");
+        String root_directory = System.getProperty("user.dir");
+        String sub_directory = "Behavioral Pattern";
+
+        String fileName = "monitor.txt";
+        String filePath = root_directory + "/" + sub_directory + "/" + fileName;
+        System.out.println(filePath);
+
+
+        FileSubject fileSubject = new FileMonitor(fileName, filePath);
 
         FileObserver observer1 = new FileChangeLogger("Observer 1");
         FileObserver observer2 = new FileChangeLogger("Observer 2");
