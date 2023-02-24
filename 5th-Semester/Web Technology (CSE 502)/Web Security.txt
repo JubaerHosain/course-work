@@ -1,0 +1,13 @@
+Broken Access Control
+Zero-day attack
+Man-in-the-middle attacks
+Denial of service (DoS) and distributed denial of service (DDoS) attacks
+SQL injection attacks
+Password-based attacks
+Malware
+Vulnerable and Outdated Components
+Identification and Authentication Failures
+Phishing
+Cross-site scripting attacks
+Security Logging and Monitoring Failures 
+
