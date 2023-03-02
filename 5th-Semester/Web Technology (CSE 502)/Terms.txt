@@ -1,0 +1,2 @@
+1. What are the 3 layers of Internet?
+Based on accessibility and content: surface web, deep web, and dark web.
