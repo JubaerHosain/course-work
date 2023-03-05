@@ -1,5 +1,6 @@
-# Run this program on pycharm project. It is not working in vscode.
 # dataset url: 'https://archive.ics.uci.edu/ml/machine-learning-databases/balance-scale/balance-scale.data'
+
+# categorical variables [color, gender, pet...]
 
 # Importing the required packages
 import pandas as pd
