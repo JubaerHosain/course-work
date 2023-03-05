@@ -1,1 +1,1 @@
-# For continuous variables[weights, height, length...]
+# For continuous variables[weights, height, length, temperature...]
