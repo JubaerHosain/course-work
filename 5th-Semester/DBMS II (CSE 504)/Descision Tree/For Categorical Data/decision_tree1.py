@@ -110,8 +110,8 @@ if __name__ == "__main__":
             label_dict["Temperature"]['Hot'], 
             label_dict["Humidity"]['High'], 
             label_dict["Wind"]['Weak']
-            ]
         ]
+    ]
     
     print("Custom input:", ['Sunny', 'Hot', 'High', 'Weak'], sep=" ")
     
