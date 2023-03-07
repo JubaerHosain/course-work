@@ -1,0 +1,15 @@
+To get 'agent_code' and 'agent_name' columns from the table 'agents' and sum of 'advance_amount' column from the table 'orders' after a joining, with following conditions -
+
+1. 'agent_code' of 'agents' and 'orders' must be same,
+
+2. the same combination of 'agent_code' and 'agent_name' of 'agents' table must be within a group,
+
+3. 'agent_code' of 'agents' table should arrange in an order, default is ascending order,
+
+the following SQL statement can be used:
+SELECT agents.agent_code,agents.agent_name,
+SUM(orders.advance_amount)
+FROM agents,orders
+WHERE agents.agent_code=orders.agent_code
+GROUP BY agents.agent_code,agents.agent_name
+ORDER BY agents.agent_code;

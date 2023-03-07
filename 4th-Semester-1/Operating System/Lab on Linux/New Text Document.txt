@@ -1,0 +1,5 @@
+June 22(lab) - grep,awk,cut,sed,touch,chmod,teletype(tty)
+June 29(lab) - pstree,fork(),getpid(),getppid()
+July 20 - (lab) - ps(with ax parameter),kill,setsid(), daemon process
+July 27 -> nc -l, -u, lsof -n, -a, -i, nc -l -p 8080
+

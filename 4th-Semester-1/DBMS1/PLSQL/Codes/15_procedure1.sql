@@ -1,0 +1,10 @@
+CREATE OR REPLACE PROCEDURE greeting AS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Hello World');
+END;
+/
+
+EXECUTE greeting;
+
+DROP PROCEDURE greeting;
+

@@ -1,0 +1,11 @@
+Advance differences between STORED PROCEDURE and Function in sql server:
+1.  You cannot use a function with Data Manipulation queries. Only Select queries are allowed in functions.
+    You can use DML queries such as insert, update, select etc… with procedures.
+2.  A function does not allow output parameters.
+    A procedure allows both input and output parameters.
+3.  You cannot manage transactions inside a function.
+    You can manage transactions inside a procedure.
+4.  You cannot call stored procedures from a function.
+    You can call a function from a stored procedure.
+5.  You can call a function using a select statement.	
+    You cannot call a procedure using select statements.
