@@ -1,4 +1,4 @@
-# Custom decision tree based on Entropy for [Continuous data]
+# Custom decision tree based on Entropy for [Confusion: For Categorical or Continuous datasets]
 import numpy as np
 
 class DecisionTreeClassifier:
