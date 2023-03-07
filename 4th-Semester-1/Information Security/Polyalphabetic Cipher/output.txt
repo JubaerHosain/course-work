@@ -1,4 +1,0 @@
-Key: this is my key
-Input text: uchar pi = input[i];
-Encrypted text: iKQT	c	6@TSii\D\}$
-Decrypted text: uchar pi = input[i];

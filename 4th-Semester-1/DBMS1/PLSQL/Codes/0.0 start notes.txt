@@ -1,4 +1,0 @@
-1. connect hr;            // connect to database
-2. set serveroutput on;   // to see the output
-3. don't use variable name as attribute of any table (convention v_name)
-4. VARCHAR2 is better than VARCHAR

@@ -1,5 +1,0 @@
-Input text: C++ is a cross-platform language that can be used to create high-performance applications.
-Encrypted text: <TT___R_
-____
-___R_Q
-Decrypted text: C++ is a cross-platform language that can be used to create high-performance applications.
