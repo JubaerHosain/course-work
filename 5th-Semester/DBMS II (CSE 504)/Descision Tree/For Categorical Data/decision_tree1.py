@@ -25,10 +25,13 @@ def import_data():
 
 
 # Convert categorical features to numeric labels
-def encode_labels(data):
+# target attribute is not encoded
+def encode_labels(data, target_attribute):
     label_dict = {}
     le = LabelEncoder()
     for column in data.columns:
+        if column == target_attribute:
+            continue
         data[column] = le.fit_transform(data[column])
         label_dict[column] = dict(zip(le.classes_, le.transform(le.classes_)))
         
@@ -76,20 +79,13 @@ def calculate_accuracy(T_test, Y_predictions):
 
 
 
-def decode(label_dict, custom_prediction):
-    # search for the key
-    for key, value in label_dict["PlayTennis"].items():
-        if value == custom_prediction[0]:
-            return key
-
-
-
 if __name__ == "__main__":
     # import data
     tennis_data = import_data() 
     
     # encode labels
-    label_dict = encode_labels(tennis_data)
+    # target attribute is not encoded
+    label_dict = encode_labels(tennis_data, 'PlayTennis')
     
     # split data
     X, Y, X_train, X_test, Y_train, Y_test = split_dataset(tennis_data)
@@ -99,7 +95,7 @@ if __name__ == "__main__":
     
     # predict
     Y_predictions = prediction(X_test, dtree)
-    
+        
     # accuracy
     calculate_accuracy(Y_test, Y_predictions)
     
@@ -118,4 +114,4 @@ if __name__ == "__main__":
     # predict
     custom_prediction = prediction(test_data, dtree)
     
-    print("Custom prediction:", decode(label_dict, custom_prediction),  sep=" ")
+    print("Custom prediction:", custom_prediction,  sep=" ")
