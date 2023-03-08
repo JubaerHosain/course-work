@@ -1,2 +1,0 @@
-Naive Bayes Classifier 
-Gaussian Naive Bayes Classifier
