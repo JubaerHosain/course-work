@@ -5,9 +5,10 @@ from sklearn.metrics import accuracy_score
 
 # Generate a random classification dataset
 X, y = make_classification(n_samples=1000, n_features=10, n_classes=2, random_state=42)
+print(y.shape)
 
 # Split data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Initialize a random forest classifier with 100 trees
 rfc = RandomForestClassifier(n_estimators=100, random_state=42)
