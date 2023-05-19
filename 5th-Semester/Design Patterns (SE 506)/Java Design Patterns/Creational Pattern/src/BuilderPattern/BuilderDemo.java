@@ -20,7 +20,7 @@ final class Student {
     private final String name;
     private final String address;
 
-    public Student(Builder builder)
+    private Student(Builder builder)
     {
         this.id = builder.id;
         this.name = builder.name;

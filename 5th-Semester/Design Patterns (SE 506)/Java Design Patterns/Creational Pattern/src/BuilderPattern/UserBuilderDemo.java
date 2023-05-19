@@ -6,7 +6,7 @@ package BuilderPattern;
  * a thread may observe some fields to contain inconsistent values.
  * */
 
-public class User {
+class User {
     private final String name;
     private final String email;
     private final String phone;
@@ -87,3 +87,16 @@ public class User {
     }
 }
 
+
+
+public class UserBuilderDemo {
+    public static void main(String args[]) {
+        User user = new User.UserBuilder("John Doe")
+                .email("johndoe@example.com")
+                .phone("123-456-7890")
+                .address("123 Main St")
+                .build();
+
+        System.out.println(user);
+    }
+}
