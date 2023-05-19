@@ -1,4 +1,4 @@
-package FactoryMethodPattern;
+package FactoryPattern;
 
 /**
  * Factory Design Pattern Super Class
